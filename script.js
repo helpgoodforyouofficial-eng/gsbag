@@ -855,7 +855,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (contactDiv && !contactDiv.innerHTML.includes('contenteditable')) {
         const mobileText = (currentLang === 'rtl') ? 'موبائل:' : 'Mobile:';
-        contactDiv.innerHTML = `<span id="biz-mobile-label">${mobileText}</span> <div class="editable-text-container"><div contenteditable="true" style="display:inline-block; font-weight: normal; outline:none; min-width:100px; word-break:break-word; vertical-align:middle;">0300-8002765</div></div>`;
+        contactDiv.innerHTML = `<span id="biz-mobile-label">${mobileText}</span> <div class="editable-text-container"><div contenteditable="true" style="display:inline-block; font-weight: normal; outline:none; min-width:100px; word-break:break-word; vertical-align:middle;">0303-8942109</div></div>`;
     }
 
     const updateUI = () => {
