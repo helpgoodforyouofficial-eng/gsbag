@@ -1,11 +1,11 @@
-const CACHE_NAME = 'bill-gen-v19'; // 🆕 v18 → v19 (har update par number barhao)
+const CACHE_NAME = 'bill-gen-v19'; // 🆕 v18 → v19
 const ASSETS = [
   './',
-  './index.html',
-  './style.css',        // 🆕 OFFLINE ke liye zaroori
-  './script.js',        // 🆕 OFFLINE ke liye zaroori
-  './manifest.json',
-  './icon-192.png',     // 🆕
+  'index.html',
+  'manifest.json',
+  './style.css',
+  './script.js',        // 🆕 YE ADD KAREIN — offline ka asli hero
+  './icon-192.png',     // 🆕 (agar file hai)
   './icon-512.png',     // 🆕 (agar file hai)
   'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js',
   'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js',
