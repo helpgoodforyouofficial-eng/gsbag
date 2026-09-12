@@ -320,50 +320,15 @@ function toggleDirection(dir) {
     }
 
     // Footer Signature & Disclaimer
-    // ============================================
-// 🆕 SMART DISCLAIMER (v2) — Auto Business Name Detection
-// HTML mein: "This [Kuch Bhi] E-Bill: Not legally binding..."
-// Urdu khud ban jayega: "یہ [Kuch Bhi] کا ای-بل قانونی حیثیت نہیں رکھتا..."
-// Business name change karo — Urdu khud update!
-// ============================================
-const disclaimer = billContainer.querySelector('.no-challenge-disclaimer');
-if (disclaimer) {
-    if (isUrdu) {
-        // 🇵🇰 URDU MODE:
-        // 1. HTML wala English text lo (user jo bhi likhe)
-        let engText = disclaimer.getAttribute('data-english-text');
-        if (!engText) {
-            engText = disclaimer.innerHTML;
-            disclaimer.setAttribute('data-english-text', engText);
-        }
+    const sigDiv = billContainer.querySelector('.footer-area div[style*="border-top"]');
+    if (sigDiv) sigDiv.innerText = isUrdu ? "دستخط" : "Signature";
 
-        // 2. Business name nikalo: "This ___ E-Bill" pattern se
-        let bizName = '';
-        const m = engText.match(/This\s+(.+?)\s+E-?Bill/i);
-        if (m && m[1]) {
-            bizName = m[1].trim();
-        } else {
-            // Fallback: Business title (bill ke header) se lo
-            const titleEl = document.getElementById('main-title');
-            bizName = titleEl ? titleEl.innerText.trim() : 'Hamara Business';
-        }
-
-        // 3. SMART URDU — business name as-is, baqi Urdu wording
-        disclaimer.innerHTML = `یہ ${bizName} کا ای-بل قانونی حیثیت نہیں رکھتا۔ <br>کسی عدالت میں پیش نہیں کیا جا سکتا۔`;
-        disclaimer.setAttribute('data-lang', 'ur');
-
-    } else {
-        // 🇬🇧 ENGLISH MODE:
-        // HTML wala asli text wapas (jo user ne likha)
-        const englishText = disclaimer.getAttribute('data-english-text');
-        if (englishText) {
-            disclaimer.innerHTML = englishText;
-        } else {
-            disclaimer.setAttribute('data-english-text', disclaimer.innerHTML);
-        }
-        disclaimer.setAttribute('data-lang', 'en');
+    const disclaimer = billContainer.querySelector('.no-challenge-disclaimer');
+    if (disclaimer) {
+        disclaimer.innerHTML = isUrdu
+            ? "یہ مرشد ٹریڈرز کا ای-بل قانونی حیثیت نہیں رکھتا۔ <br>کسی عدالت میں پیش نہیں کیا جا سکتا۔"
+            : "This Free Bills E-Bill: Not legally binding. <br>Cannot be challenged in any court.";
     }
-}
 
     // Language change par bhi Date & Time fresh set
     setDateTime();
@@ -1083,7 +1048,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (contactDiv && !contactDiv.innerHTML.includes('contenteditable')) {
         const mobileText = (currentLang === 'rtl') ? 'موبائل:' : 'Mobile:';
-        contactDiv.innerHTML = `<span id="biz-mobile-label">${mobileText}</span> <div class="editable-text-container"><div contenteditable="true" style="display:inline-block; font-weight: normal; outline:none; min-width:100px; word-break:break-word; vertical-align:middle;">0303-8942109</div></div>`;
+        contactDiv.innerHTML = `<span id="biz-mobile-label">${mobileText}</span> <div class="editable-text-container"><div contenteditable="true" style="display:inline-block; font-weight: normal; outline:none; min-width:100px; word-break:break-word; vertical-align:middle;">0300-8002765</div></div>`;
     }
 
     const updateUI = () => {
@@ -1141,7 +1106,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
 
                 const currentLength = currentStrippedSource.length;
-            //        alert("New Code Length is: " + currentLength);
+              //      alert("New Code Length is: " + currentLength);
                 if (currentLength !== CORRECT_HASH_SIGNATURE) {
                     document.body.innerHTML = `
                         <div style="position:fixed; top:0; left:0; width:100vw; height:100vh; background-color:#7f1d1d; color:#ffffff; display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:sans-serif; padding:20px; text-align:center; z-index:999999;">
