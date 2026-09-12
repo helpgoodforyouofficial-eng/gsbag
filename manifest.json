@@ -1,6 +1,6 @@
 {
   "name": "Ultimate Universal Bill Generator",
-  "short_name": "GS Bags BillGen",
+  "short_name": "GS Bags App",
   "description": "Generate dynamic professional invoice bills easily.",
   "start_url": "index.html",
   "display": "standalone",
